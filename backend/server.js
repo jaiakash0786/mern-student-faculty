@@ -54,6 +54,13 @@ app.use('/api/files', fileRoutes);
 
 // Serve uploaded files statically
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
+// Add this with your other imports
+const taskRoutes = require('./routes/tasks');
+
+// Add this with your other route registrations
+app.use('/api/tasks', taskRoutes);
+
 // Define PORT
 const PORT = process.env.PORT || 5000;
 
