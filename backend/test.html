@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WebSocket Test</title>
+    <script src="https://cdn.socket.io/4.5.0/socket.io.min.js"></script>
+</head>
+<body>
+    <h1>WebSocket Test</h1>
+    <button onclick="connect()">Connect</button>
+    <button onclick="joinGroup()">Join Group</button>
+    <button onclick="sendMessage()">Send Message</button>
+    
+    <script>
+        let socket;
+        
+        function connect() {
+            socket = io('http://localhost:5000', {
+                auth: {
+                    token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGJiNWMxYWU4YTgxM2UzN2ViYzEwZDMiLCJyb2xlIjoic3R1ZGVudCIsImlhdCI6MTc1NzU2OTc1NywiZXhwIjoxNzU4MTc0NTU3fQ.dNoWKmmxmgdLZr5UDt35awImifD3FlmdZhbXLE74exU"
+                }
+            });
+            
+            socket.on('connect', () => {
+                console.log('Connected to server');
+            });
+            
+            socket.on('new-message', (message) => {
+                console.log('New message:', message);
+            });
+            socket.on('user-typing', (data) => {
+                console.log('✏️ Typing:', data);
+            });
+
+            socket.on('user-stop-typing', (data) => {
+                console.log('🛑 Stop typing:', data);
+            });
+            socket.on('error', (error) => {
+                console.error('Socket error:', error);
+            });
+        }
+        
+        function joinGroup() {
+            socket.emit('join-group', '68babcd62963d05158d718c8'); // Replace with actual group ID
+        }
+        
+        function sendMessage() {
+            socket.emit('send-message', {
+                content: 'Hello ',
+                groupId: '68babcd62963d05158d718c8' // Replace with actual group ID
+            });
+        }
+        function startTyping() {
+            socket.emit('typing-start', { groupId: '68babcd62963d05158d718c8' });
+        }
+
+        function stopTyping() {
+            socket.emit('typing-stop', { groupId: '68babcd62963d05158d718c8' });
+        }
+    </script>
+</body>
+</html>
