@@ -1,0 +1,204 @@
+/* ================= Container ================= */
+.files-container {
+  padding: 3rem 1.5rem;
+  min-height: 100vh;
+  background: linear-gradient(145deg, #f0f4f8 0%, #d9e2ec 100%);
+  font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #2c3e50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ================= Headings ================= */
+.files-container h2 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #34495e;
+}
+
+.files-container h3 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  width: 100%;
+  text-align: left;
+  border-bottom: 2px solid #d1d8e0;
+  padding-bottom: 0.3rem;
+  color: #2c3e50;
+}
+
+/* ================= Upload Form ================= */
+.upload-form {
+  background: #ffffffee;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+}
+
+.upload-form:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.12);
+}
+
+.upload-form input[type="file"] {
+  padding: 8px;
+}
+
+.upload-form input[type="text"] {
+  padding: 12px 15px;
+  border: 1px solid #cfd8e0;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.upload-form input[type="text"]:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0,123,255,0.3);
+  outline: none;
+}
+
+/* Buttons */
+.upload-form button,
+.file-actions button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.upload-form button {
+  background: linear-gradient(90deg, #007bff, #0056b3);
+  color: #fff;
+}
+
+.upload-form button:hover {
+  background: linear-gradient(90deg, #0056b3, #003f7f);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* ================= File List ================= */
+.file-list {
+  width: 100%;
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+}
+
+.file-item {
+  background: #ffffffee;
+  padding: 1.8rem 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.file-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.12);
+}
+
+.file-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.file-info strong {
+  font-size: 1.1rem;
+  color: #2c3e50;
+}
+
+.file-info span {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* ================= File Action Buttons ================= */
+.file-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.file-actions button.download {
+  background: #28a745;
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+.file-actions button.download:hover {
+  background: #1e7e34;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+}
+
+.file-actions button.delete {
+  background: #dc3545;
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+.file-actions button.delete:hover {
+  background: #a71d2a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+}
+
+/* ================= Responsive ================= */
+@media (max-width: 768px) {
+  .upload-form,
+  .file-item {
+    padding: 1.5rem 1rem;
+  }
+
+  .files-container h2 {
+    font-size: 2.2rem;
+  }
+
+  .files-container h3 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .upload-form,
+  .file-item {
+    padding: 1.2rem 0.8rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .file-actions {
+    margin-top: 0.8rem;
+  }
+
+  .files-container h2 {
+    font-size: 1.8rem;
+  }
+
+  .files-container h3 {
+    font-size: 1.3rem;
+  }
+}
